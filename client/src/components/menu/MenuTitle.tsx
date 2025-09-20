@@ -1,0 +1,56 @@
+import { Box, Link } from "@chakra-ui/react";
+import { ACTIVE_HOVER, HUE_ROTATE } from "../../utils/animations";
+import { useState } from "react";
+
+const MenuTitle = () => {
+  const [hover, setHover] = useState(false);
+
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+  return (
+    <Box
+      as="h1"
+      position="absolute"
+      display={{ base: "none", sm: "flex" }}
+      animation={HUE_ROTATE}
+      p="10px 20px"
+      transition="all 0.2s"
+      _hover={{ cursor: "pointer", ...ACTIVE_HOVER }}
+      fontFamily="Reddit Sans"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      gap={hover ? 1 : 0}
+    >
+      <Link
+        href="/"
+        fontWeight={900}
+        bgGradient="linear(125deg, #a7271e, #a18f1f, #519519)"
+        bgClip="text"
+        color="transparent"
+        animation={HUE_ROTATE}
+        _hover={
+          !isSafari
+            ? {
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  left: 0,
+                  bottom: 3.8,
+                  width: "100%",
+                  height: "0.1em",
+                  bgGradient: "linear(125deg, #a7271e, #a18f1f, #519519)"
+                }
+              }
+            : {}
+        }
+      >
+        ColorAI
+      </Link>
+      <Box display="inline" opacity={hover ? 0 : 1} transition="opacity 0.1s">
+        .
+      </Box>
+    </Box>
+  );
+};
+
+export default MenuTitle;

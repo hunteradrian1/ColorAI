@@ -1,0 +1,102 @@
+# OS
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Editors/IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment/Secrets
+.env
+.env.*
+*.env.local
+
+# Node.js common
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.bun/
+.cache/
+dist/
+build/
+coverage/
+.next/
+out/
+
+# Client-specific
+client/node_modules/
+client/.cache/
+client/.parcel-cache/
+client/dist/
+client/build/
+client/.next/
+client/coverage/
+
+# Server-specific
+server/node_modules/
+server/.cache/
+server/dist/
+server/build/
+server/coverage/
+
+# Python common
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.mypy_cache/
+.pytype/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Notebooks (keep if you want, otherwise ignore large .ipynb)
+*.ipynb
+
+# Python environments
+.venv/
+venv/
+ml/venv/
+
+# ML artifacts and large model files
+ml/output/
+ml/code/output/
+ml/models/*.h5
+ml/models/*.hdf5
+ml/models/*.ckpt
+ml/models/*.ckpt.*
+ml/models/*.pb
+ml/models/*.tflite
+ml/models/*.onnx
+
+# Keep helper script for fetching data, ignore downloaded data
+ml/data/*
+!ml/data/download.sh
+
+# Logs and runtime
+logs/
+*.log
+*.pid
+*.seed
+*.out
+
+# Docker/local overrides
+**/.docker/
+docker-compose.override.yml
+*.local.yml
+
+# Environment files (ignore all variants, keep examples)
+.env
+.env.*
+*.env
+*.env.*
+!*.env.example
+!**/.env.example
+
+output/
+

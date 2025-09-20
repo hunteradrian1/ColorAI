@@ -1,0 +1,35 @@
+# Git
+.git
+.gitignore
+
+# Node modules
+client/node_modules
+client/build
+
+# Python
+ml/venv
+ml/__pycache__
+ml/code/__pycache__
+ml/code/output
+
+# Output files
+output/*.png
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
