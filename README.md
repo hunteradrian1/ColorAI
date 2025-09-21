@@ -24,6 +24,28 @@ Quick Start
   - `bash go.sh`
 - Use the app: `http://localhost:3000`
 
+## Getting the Model
+
+The application requires a pre-trained `.h5` model file to perform image colorization. You have several options:
+
+### Option 1: Train Your Own Model
+1. Set up the ML environment: `cd ml && ./setup.sh`
+2. Download the dataset: `cd ml/data && ./download.sh`
+3. Train the model: `cd ml/code && python main.py`
+4. The trained model will be saved as `ml/models/model.h5`
+
+### Option 2: Use a Pre-trained Model
+- Download a pre-trained colorization model from:
+  - [Hugging Face Model Hub](https://huggingface.co/models?search=colorization)
+  - [TensorFlow Hub](https://tfhub.dev/s?q=colorization)
+  - [Model Zoo repositories](https://modelzoo.co/)
+- Place the downloaded `.h5` file at `ml/models/model.h5`
+
+### Option 3: Use a Compatible Model
+- Any VGG-19 based U-Net model trained for colorization should work
+- Ensure the model expects grayscale input and outputs color channels
+- Model should be saved in Keras/TensorFlow `.h5` format
+
 What’s Inside
 - `server/local_server.py`: Flask API for upload → colorize → fetch
 - `client/`: React UI
@@ -52,11 +74,3 @@ API Endpoints (Flask)
 - `GET  /api/image/get/:id`            → returns `{ colored: { data: [...] } }`
 - `GET  /api/image/list`               → list of image IDs
 - `GET  /api/image/total`              → total count (in-memory)
-
-Notes
-- No database — the server stores colorized images under `output/` and tracks them in memory while running.
-- The React app points to `http://localhost:4000/api` (set in `client/.env.local`).
-- Do not run any Node server on port 4000; that’s reserved for Flask in this setup.
-
-
-
